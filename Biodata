@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Diri</title>
+</head>
+<body>
+  <h1>Form Biodata Diri</h1>
+  <form>
+    <label>Nama:</label><br>
+    <input type="text" id="nama"><br><br>
+
+    <label>Umur:</label><br>
+    <input type="number" id="umur"><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" id="email"><br><br>
+
+    <label>Alamat:</label><br>
+    <textarea id="alamat"></textarea><br><br>
+
+    <button type="button" onclick="tampilData()">Tampilkan</button>
+  </form>
+
+  <h2>Hasil Biodata</h2>
+  <p id="hasil"></p>
+
+  <script>
+    function tampilData(){
+      const nama = document.getElementById('nama').value;
+      const umur = document.getElementById('umur').value;
+      const email = document.getElementById('email').value;
+      const alamat = document.getElementById('alamat').value;
+
+      document.getElementById('hasil').innerHTML = 
+        `<strong>Nama:</strong> ${nama}<br>
+         <strong>Umur:</strong> ${umur}<br>
+         <strong>Email:</strong> ${email}<br>
+         <strong>Alamat:</strong> ${alamat}`;
+    }
+  </script>
+</body>
+</html>
