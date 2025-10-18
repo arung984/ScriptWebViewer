@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Konversi Mata Uang</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #00b4db, #0083b0);
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 300px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    input, select, button {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    input, select {
+      background: #fff;
+      color: #333;
+    }
+    button {
+      background-color: #00c6ff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #0072ff;
+    }
+    h2 {
+      margin-bottom: 15px;
+    }
+    .hasil {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffeb3b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Konversi Mata Uang</h2>
+
+    <input type="number" id="nilai" placeholder="Masukkan jumlah">
+    
+    <select id="konversi">
+      <option value="rp-usd">Rupiah ke Dollar</option>
+      <option value="usd-rp">Dollar ke Rupiah</option>
+    </select>
+
+    <button onclick="hitung()">Konversi</button>
+
+    <div class="hasil" id="hasil">Hasil akan muncul di sini</div>
+  </div>
+
+  <script>
+    function hitung() {
+      let nilai = parseFloat(document.getElementById("nilai").value);
+      let tipe = document.getElementById("konversi").value;
+      let hasil = 0;
+      const kurs = 15500; // contoh kurs: 1 USD = 15.500 Rupiah
+
+      if (!nilai) {
+        document.getElementById("hasil").innerText = "Masukkan nilai terlebih dahulu!";
+        return;
+      }
+
+      if (tipe === "rp-usd") {
+        hasil = nilai / kurs;
+        document.getElementById("hasil").innerText = `≈ ${hasil.toFixed(2)} USD`;
+      } else {
+        hasil = nilai * kurs;
+        document.getElementById("hasil").innerText = `≈ ${hasil.toFixed(2)} Rupiah`;
+      }
+    }
+  </script>
+</body>
+</html>
